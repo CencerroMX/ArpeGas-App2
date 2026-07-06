@@ -1,0 +1,51 @@
+// ============================================================================
+//  ARPE Gas — Sistema de diseño / theme (colores oficiales)
+// ============================================================================
+
+:root {
+  // ---- Marca (hex oficiales) ----
+  --arpe-blue: #1a3fa6;          // azul primario
+  --arpe-blue-shade: #142f7e;
+  --arpe-blue-tint: #3557bb;
+  --arpe-blue-deep: #1a3fa6;     // gradiente header/splash (inicio)
+  --arpe-blue-deep-2: #2f52c0;   // gradiente header/splash (fin)
+  --arpe-red: #d42b2b;           // rojo ARPE (acentos, scan)
+  --arpe-red-shade: #b31f1f;
+  --arpe-gray: #9aa0a6;          // deshabilitado
+  --arpe-bg: #e8eefb;            // fondo azul claro
+
+  // ---- Tiers ----
+  --tier-1: #1a3fa6;             // Nivel 1 - azul
+  --tier-2: #b8960b;             // Nivel 2 - dorado/olivo
+  --tier-3: #d42b2b;             // Nivel 3 - rojo
+
+  // ---- Ionic primary = azul ARPE ----
+  --ion-color-primary: #1a3fa6;
+  --ion-color-primary-rgb: 26, 63, 166;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #142f7e;
+  --ion-color-primary-tint: #3557bb;
+
+  // ---- Ionic secondary = rojo ARPE ----
+  --ion-color-secondary: #d42b2b;
+  --ion-color-secondary-rgb: 212, 43, 43;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #b31f1f;
+  --ion-color-secondary-tint: #da4040;
+
+  // ---- Tipografía ----
+  --ion-font-family: 'Rubik', 'Helvetica Neue', 'Roboto', sans-serif;
+
+  // ---- Superficies ----
+  --ion-background-color: #e8eefb;
+  --ion-background-color-rgb: 232, 238, 251;
+  --ion-text-color: #1c1f26;
+  --ion-text-color-rgb: 28, 31, 38;
+
+  // ---- Radios / sombras compartidos ----
+  --arpe-radius-card: 18px;
+  --arpe-radius-pill: 999px;
+  --arpe-shadow-card: 0 6px 18px rgba(26, 63, 166, 0.08);
+}

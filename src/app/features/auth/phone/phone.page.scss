@@ -1,0 +1,104 @@
+.phone-content {
+  --background: #ffffff;
+}
+
+.hero {
+  background: linear-gradient(180deg, var(--arpe-blue-deep) 0%, var(--arpe-blue-deep-2) 100%);
+  padding: calc(var(--ion-safe-area-top, 0) + 48px) 24px 40px;
+  text-align: center;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+}
+
+.trophy {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.sheet {
+  padding: 28px 24px 24px;
+}
+
+.sheet-title {
+  font-size: 1.5rem;
+  margin: 0 0 6px;
+}
+
+.sheet-sub {
+  color: #4a4f5a;
+  font-size: 0.95rem;
+  margin: 0 0 22px;
+}
+
+.phone-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.cc-field label,
+.num-field label {
+  display: block;
+  font-size: 0.8rem;
+  color: #6b7180;
+  margin-bottom: 6px;
+}
+
+.num-field {
+  flex: 1;
+}
+
+.cc-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 56px;
+}
+
+.flag { font-size: 1.3rem; }
+.cc { font-weight: 600; font-size: 1.1rem; color: #1c1f26; }
+
+.num-input {
+  width: 100%;
+  height: 56px;
+  border: 1.5px solid #cfd3de;
+  border-radius: 14px;
+  padding: 0 18px;
+  font-size: 1.2rem;
+  font-family: var(--ion-font-family);
+  color: #1c1f26;
+  outline: none;
+}
+.num-input:focus { border-color: var(--arpe-blue); }
+
+.arpe-btn.full {
+  width: 100%;
+  display: block;
+  margin-bottom: 14px;
+  border: 0;
+  cursor: pointer;
+}
+
+.privacy {
+  color: #9aa0a6;
+  font-size: 0.78rem;
+  text-align: center;
+  line-height: 1.4;
+  margin: 18px 0 0;
+}
+
+.version {
+  text-align: center;
+  color: #9aa0a6;
+  font-size: 0.85rem;
+  margin-top: 26px;
+}

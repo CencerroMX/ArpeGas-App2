@@ -1,0 +1,50 @@
+<ion-content [fullscreen]="true" class="reg-content">
+  <div class="reg-wrap">
+    <h1 class="heading-blue title">Queremos saber un poco más sobre ti</h1>
+    <p class="sub">Completa algunos datos para registrarte.</p>
+
+    <input class="field" type="text" placeholder="Nombre(s)" [(ngModel)]="name" />
+    <input class="field" type="text" placeholder="Primer Apellido" [(ngModel)]="lastname" />
+    <input class="field" type="text" placeholder="Segundo Apellido (opcional)" [(ngModel)]="secondLastname" />
+    <input
+      class="field"
+      type="tel"
+      inputmode="numeric"
+      placeholder="Fecha de nacimiento: dd/mm/aaaa"
+      [value]="birthdate"
+      (input)="onBirthdateInput($any($event.target).value)"
+    />
+
+    <div class="pass-field">
+      <input
+        class="pass-input"
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Contraseña (mín. 6 caracteres)"
+        [(ngModel)]="password"
+      />
+      <button class="toggle" type="button" (click)="showPassword = !showPassword">
+        {{ showPassword ? 'Ocultar' : 'Ver' }}
+      </button>
+    </div>
+
+    <label class="privacy-row">
+      <input type="checkbox" [(ngModel)]="accepted" />
+      <span>
+        Al continuar, confirmas que leíste y aceptas el Aviso de Privacidad del programa y el
+        Aviso de privacidad del uso de la aplicación
+      </span>
+    </label>
+  </div>
+
+  <div class="footer">
+    <button
+      class="arpe-btn full"
+      [class.btn-primary]="isValid"
+      [class.btn-disabled]="!isValid"
+      [disabled]="!isValid"
+      (click)="submit()"
+    >
+      Continuar
+    </button>
+  </div>
+</ion-content>

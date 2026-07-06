@@ -1,0 +1,13 @@
+<svg width="320" height="240" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Marca (rombo) -->
+  <g transform="translate(60,10)">
+    <path d="M100 12 L188 66 L150 66 L100 40 L50 66 L12 66 Z" fill="#8f2a20"/>
+    <path d="M12 70 L50 70 L92 118 L100 138 Z" fill="#c0392b"/>
+    <path d="M188 70 L150 70 L108 118 L100 138 Z" fill="#c0392b"/>
+    <path d="M96 58 L104 58 L104 96 L96 96 Z" fill="#8f2a20"/>
+  </g>
+  <!-- Wordmark ARPE (blanco) + GAS (círculo rojo) -->
+  <text x="120" y="210" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="800" font-size="56" fill="#ffffff" letter-spacing="2">ARPE</text>
+  <circle cx="248" cy="192" r="30" fill="#c0392b"/>
+  <text x="248" y="200" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="700" font-size="20" fill="#ffffff">GAS</text>
+</svg>

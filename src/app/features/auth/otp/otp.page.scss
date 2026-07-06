@@ -1,0 +1,89 @@
+.otp-content {
+  --background: #ffffff;
+}
+
+.otp-wrap {
+  padding: calc(var(--ion-safe-area-top, 0) + 48px) 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 46%;
+  max-width: 190px;
+  margin-bottom: 56px;
+}
+
+.title {
+  font-size: 1.7rem;
+  margin: 0 0 28px;
+}
+
+/* Contenedor: 4 recuadros visuales + 1 input real transparente encima */
+.otp-field {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.boxes {
+  display: flex;
+  gap: 14px;
+}
+
+.box {
+  width: 62px;
+  height: 62px;
+  border: 1.5px solid #cfd3de;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1c1f26;
+  transition: border-color 0.15s ease;
+}
+.box.filled {
+  border-color: var(--arpe-blue);
+}
+.box.active {
+  border-color: var(--arpe-blue);
+  box-shadow: 0 0 0 3px rgba(36, 58, 142, 0.15);
+}
+
+/* Input real que captura toda la escritura, invisible pero encima de los recuadros */
+.hidden-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+  font-size: 2rem;
+  text-align: center;
+  outline: none;
+  /* Reparte el caret/selección para que no se vea un cursor concentrado */
+  letter-spacing: 40px;
+}
+
+.resend {
+  color: #9aa0a6;
+  font-size: 0.9rem;
+  margin: 12px 0 26px;
+}
+.resend.active {
+  color: var(--arpe-blue);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.arpe-btn.full {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+}

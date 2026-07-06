@@ -1,0 +1,48 @@
+.arpe-tabbar {
+  --background: var(--arpe-blue-deep);
+  --border: 0;
+  height: 74px;
+  padding-bottom: var(--ion-safe-area-bottom, 0);
+}
+
+ion-tab-button {
+  --color: rgba(255, 255, 255, 0.85);
+  --color-selected: #ffffff;
+  --padding-top: 8px;
+}
+
+ion-tab-button ion-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+/* Íconos: contorno (inactivo) por defecto, relleno (activo) al seleccionar */
+.tic {
+  width: 25px;
+  height: 25px;
+}
+.tic-on { display: none; }
+ion-tab-button.tab-selected .tic-off { display: none; }
+ion-tab-button.tab-selected .tic-on { display: block; }
+
+/* Botón central (Ticket) elevado */
+.tab-center .center-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.15s ease;
+}
+.tab-center .center-btn .cqr { width: 26px; height: 26px; }
+.tab-center .center-btn .cqr-on { display: none; }
+
+/* Activo: fondo rojo, QR blanco */
+.tab-center.tab-selected .center-btn { background: var(--arpe-red); }
+.tab-center.tab-selected .center-btn .cqr-off { display: none; }
+.tab-center.tab-selected .center-btn .cqr-on { display: block; }

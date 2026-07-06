@@ -1,0 +1,48 @@
+<ion-content [fullscreen]="true" class="phone-content">
+  <!-- Cabecera azul con ilustración -->
+  <div class="hero">
+    <img class="trophy" src="assets/illustrations/trophy.png" alt="" />
+    <h1 class="hero-title">¡Acumula puntos y gana<br />grandes premios!</h1>
+  </div>
+
+  <!-- Formulario -->
+  <div class="sheet">
+    <h2 class="heading-blue sheet-title">Compártenos tu número</h2>
+    <p class="sheet-sub">Enviaremos un código de verificación para registrarte o entrar a tu cuenta.</p>
+
+    <div class="phone-row">
+      <div class="cc-field">
+        <label>Código</label>
+        <div class="cc-box">
+          <span class="flag">🇲🇽</span>
+          <span class="cc">+52</span>
+        </div>
+      </div>
+      <div class="num-field">
+        <label>Número de celular</label>
+        <input
+          class="num-input"
+          type="tel"
+          inputmode="numeric"
+          placeholder="(614) 123 4560"
+          [value]="phoneDisplay"
+          (input)="onPhoneInput($any($event.target).value)"
+        />
+      </div>
+    </div>
+
+    <button class="arpe-btn btn-green full" (click)="send('whatsapp')">
+      Enviar Código por WhatsApp
+    </button>
+    <button class="arpe-btn btn-secondary full" (click)="send('sms')">
+      Enviar Código por SMS
+    </button>
+
+    <p class="privacy">
+      Al continuar, confirmas que leíste y aceptas el Aviso de Privacidad del programa y el
+      Aviso de privacidad del uso de la aplicación
+    </p>
+
+    <p class="version">Versión {{ version }}</p>
+  </div>
+</ion-content>

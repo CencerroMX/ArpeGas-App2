@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ArpeGas</string>
+    <string name="title_activity_main">ArpeGas</string>
+    <string name="package_name">com.arpe.gas</string>
+    <string name="custom_url_scheme">com.arpe.gas</string>
+</resources>

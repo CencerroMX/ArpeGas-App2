@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar class="qr-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/ticket" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Generar QR de prueba</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="qr-content">
+  <div class="qr-wrap">
+    <!-- QR generado -->
+    <div class="qr-box">
+      <img *ngIf="qrDataUrl()" [src]="qrDataUrl()" alt="QR de prueba" />
+    </div>
+
+    <div class="string-box">
+      <p class="string-text">{{ qrString() }}</p>
+    </div>
+
+    <div class="actions">
+      <button class="arpe-btn btn-primary act" (click)="copyString()">
+        <ion-icon name="copy-outline"></ion-icon>
+        Copiar string
+      </button>
+      <button class="arpe-btn btn-red act" (click)="regenerateWithNewFirma()">
+        <ion-icon name="refresh-outline"></ion-icon>
+        Nueva firma
+      </button>
+    </div>
+
+    <!-- Campos -->
+    <div class="fields">
+      <label>Permiso</label>
+      <input [(ngModel)]="permiso" (ngModelChange)="generate()" />
+
+      <label>Empresa</label>
+      <input [(ngModel)]="empresa" (ngModelChange)="generate()" />
+
+      <div class="row">
+        <div>
+          <label>Fecha</label>
+          <input [(ngModel)]="fecha" (ngModelChange)="generate()" />
+        </div>
+        <div>
+          <label>Hora</label>
+          <input [(ngModel)]="hora" (ngModelChange)="generate()" />
+        </div>
+      </div>
+
+      <label>Litros (1 punto por litro)</label>
+      <input inputmode="decimal" [(ngModel)]="litros" (ngModelChange)="generate()" />
+
+      <div class="row">
+        <div>
+          <label>Subtotal</label>
+          <input inputmode="decimal" [(ngModel)]="subtotal" (ngModelChange)="generate()" />
+        </div>
+        <div>
+          <label>IVA</label>
+          <input inputmode="decimal" [(ngModel)]="iva" (ngModelChange)="generate()" />
+        </div>
+        <div>
+          <label>Total</label>
+          <input inputmode="decimal" [(ngModel)]="total" (ngModelChange)="generate()" />
+        </div>
+      </div>
+
+      <label>Firma (única por ticket)</label>
+      <input [(ngModel)]="firma" (ngModelChange)="generate()" />
+      <p class="hint">Cada firma debe ser distinta: un QR solo se registra una vez.</p>
+    </div>
+  </div>
+</ion-content>

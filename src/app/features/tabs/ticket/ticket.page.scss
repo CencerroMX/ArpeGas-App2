@@ -1,0 +1,130 @@
+.ticket-content {
+  /* Fondo oscuro en navegador; en dispositivo se vuelve transparente para ver la cámara. */
+  --background: #2b2b2b;
+}
+/* Cuando el escáner nativo está activo, el contenido es transparente. */
+.ticket-content.scanning {
+  --background: transparent;
+}
+
+.scan-overlay {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--ion-safe-area-top, 0) + 12px) 20px 16px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.back,
+.flash {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flash ion-icon,
+.back ion-icon { font-size: 22px; }
+.flash.on { background: #fff; color: var(--arpe-blue); }
+.mark { height: 26px; }
+
+.scan-title {
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 14px 20px 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Marco de escaneo */
+.frame {
+  position: relative;
+  width: 64vw;
+  max-width: 280px;
+  aspect-ratio: 1;
+  margin: 26px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.corner {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border: 4px solid #fff;
+}
+.corner.tl { top: 0; left: 0; border-right: 0; border-bottom: 0; border-top-left-radius: 8px; }
+.corner.tr { top: 0; right: 0; border-left: 0; border-bottom: 0; border-top-right-radius: 8px; }
+.corner.bl { bottom: 0; left: 0; border-right: 0; border-top: 0; border-bottom-left-radius: 8px; }
+.corner.br { bottom: 0; right: 0; border-left: 0; border-top: 0; border-bottom-right-radius: 8px; }
+
+.dev-note {
+  text-align: center;
+  color: #fff;
+  padding: 0 12px;
+}
+.dev-note p { font-size: 0.85rem; opacity: 0.85; margin-bottom: 12px; }
+.sim { border: 0; }
+
+/* Acciones */
+.actions {
+  display: flex;
+  gap: 14px;
+  margin-top: auto;
+}
+.action {
+  flex: 1;
+  border: 0;
+  border-radius: 14px;
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.action ion-icon { font-size: 30px; }
+.action .act-ic { width: 30px; height: 30px; }
+.action.red { background: var(--arpe-red); color: #fff; }
+.action.white { background: #fff; color: var(--arpe-red); }
+
+/* Mis Arpuntos */
+.arpuntos {
+  margin-top: 14px;
+  width: 100%;
+  border: 0;
+  background: var(--arpe-blue-deep);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #fff;
+}
+.ap-mark { height: 30px; }
+.ap-body { flex: 1; display: flex; flex-direction: column; align-items: center; }
+.ap-lbl { font-size: 0.9rem; opacity: 0.9; }
+.ap-num { font-size: 1.4rem; font-weight: 800; }
+.ap-arrow { font-size: 1.3rem; }
+
+.qr-tool-link {
+  margin: 10px auto 0;
+  display: block;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}

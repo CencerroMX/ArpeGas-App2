@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de QR de prueba — ARPE Gas</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    :root { --blue:#243a8e; --deep:#1e3a8a; --red:#c0392b; }
+    * { box-sizing: border-box; font-family: -apple-system, Segoe UI, Roboto, sans-serif; }
+    body { margin:0; background:#e9ecf8; color:#1c1f26; padding:24px; }
+    .wrap { max-width:520px; margin:0 auto; }
+    h1 { color:var(--blue); font-size:1.4rem; margin:0 0 4px; }
+    .sub { color:#4a4f5a; margin:0 0 20px; font-size:.9rem; }
+    .card { background:#fff; border-radius:16px; padding:20px; box-shadow:0 6px 18px rgba(36,58,142,.08); margin-bottom:18px; }
+    label { display:block; font-size:.8rem; color:#6b7180; margin:10px 0 4px; }
+    input { width:100%; height:44px; border:1.5px solid #cfd3de; border-radius:10px; padding:0 12px; font-size:1rem; }
+    .row { display:flex; gap:10px; }
+    .row > div { flex:1; }
+    .firma-row { display:flex; gap:10px; align-items:flex-end; }
+    button { border:0; border-radius:999px; height:48px; font-size:1rem; font-weight:600; cursor:pointer; color:#fff; }
+    .btn-blue { background:var(--blue); width:100%; margin-top:16px; }
+    .btn-red { background:var(--red); padding:0 16px; height:44px; white-space:nowrap; }
+    #qr { display:flex; justify-content:center; padding:10px; }
+    #qr img, #qr canvas { border-radius:8px; }
+    .string { word-break:break-all; background:#f3f4fa; border-radius:10px; padding:12px; font-size:.8rem; color:#333; margin-top:12px; }
+    .hint { font-size:.75rem; color:#9aa0a6; margin-top:6px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Generador de QR de prueba — ARPE Gas</h1>
+    <p class="sub">Formato v2 (con litros). Escanea el QR desde la app para probar el registro de tickets.</p>
+
+    <div class="card">
+      <label>Permiso</label>
+      <input id="permiso" value="P00778" />
+
+      <label>Empresa</label>
+      <input id="empresa" value="CORPORATIVO ARPE, S.A. DE C.V." />
+
+      <div class="row">
+        <div>
+          <label>Fecha (dd/mm/aaaa)</label>
+          <input id="fecha" value="04/06/2025" />
+        </div>
+        <div>
+          <label>Hora (HH:MM)</label>
+          <input id="hora" value="10:32" />
+        </div>
+      </div>
+
+      <label>Litros (1 punto por litro)</label>
+      <input id="litros" value="6.330" />
+
+      <div class="row">
+        <div>
+          <label>Subtotal</label>
+          <input id="subtotal" value="129.81" />
+        </div>
+        <div>
+          <label>IVA</label>
+          <input id="iva" value="20.19" />
+        </div>
+        <div>
+          <label>Total</label>
+          <input id="total" value="150.00" />
+        </div>
+      </div>
+
+      <label>Firma (llave única anti-duplicado)</label>
+      <div class="firma-row">
+        <input id="firma" />
+        <button class="btn-red" onclick="nuevaFirma()">Nueva firma</button>
+      </div>
+      <p class="hint">Cada firma debe ser distinta: un mismo QR solo se puede registrar una vez.</p>
+
+      <button class="btn-blue" onclick="generar()">Generar QR</button>
+    </div>
+
+    <div class="card">
+      <div id="qr"></div>
+      <div class="string" id="stringOut"></div>
+    </div>
+  </div>
+
+  <script>
+    function nuevaFirma() {
+      const bytes = new Uint8Array(24);
+      crypto.getRandomValues(bytes);
+      document.getElementById('firma').value = btoa(String.fromCharCode(...bytes));
+    }
+
+    function val(id) { return document.getElementById(id).value.trim(); }
+
+    function generar() {
+      const campos = [
+        val('permiso'), val('empresa'), val('fecha'), val('hora'),
+        val('litros'), val('subtotal'), val('iva'), val('total'), val('firma'),
+      ];
+      const str = '|' + campos.join('|') + '|';
+      document.getElementById('stringOut').textContent = str;
+
+      const cont = document.getElementById('qr');
+      cont.innerHTML = '';
+      new QRCode(cont, { text: str, width: 260, height: 260, correctLevel: QRCode.CorrectLevel.M });
+    }
+
+    // Inicial
+    nuevaFirma();
+    generar();
+  </script>
+</body>
+</html>

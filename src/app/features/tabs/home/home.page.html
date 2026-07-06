@@ -1,0 +1,62 @@
+<app-brand-header [badge]="2"></app-brand-header>
+
+<ion-content class="home-content">
+  <div class="home-wrap">
+    <!-- Saludo -->
+    <div class="greeting">
+      <div>
+        <p class="hi">Bienvenida de vuelta,</p>
+        <h2 class="name">{{ fullName() || 'Cliente ARPE' }}</h2>
+      </div>
+      <button class="qr-btn" (click)="goToScanner()">
+        <img src="assets/tabs/qr.svg" alt="QR" />
+      </button>
+    </div>
+
+    <!-- Tarjeta de puntos -->
+    <div class="points-card" *ngIf="points() as p">
+      <div class="points-top">
+        <div class="pts"><span class="pts-num">{{ p.points }}</span><span class="pts-lbl">pts</span></div>
+        <span class="tier-chip">Nivel {{ p.tierLevel }}</span>
+      </div>
+      <p class="pts-missing">Puntos faltantes para siguiente nivel: {{ p.pointsToNextTier }}</p>
+      <div class="progress">
+        <div class="progress-fill" [style.width.%]="progressPercent()"></div>
+      </div>
+      <div class="pts-cta">
+        <span>{{ p.nextRewardHint }}</span>
+        <span class="arrow">→</span>
+      </div>
+    </div>
+
+    <!-- Acumula Puntos (tiers) -->
+    <h3 class="section-title">Acumula Puntos</h3>
+    <p class="section-subtitle">Sube de nivel y recibe cada vez más puntos</p>
+    <div class="tiers">
+      <div class="tier-card" *ngFor="let t of tiers">
+        <p class="tier-name" [style.color]="t.color">{{ t.name }}</p>
+        <p class="tier-pct" [style.color]="t.color">{{ t.percent }}%</p>
+      </div>
+    </div>
+
+    <!-- Racha Semanal -->
+    <h3 class="section-title">Racha Semanal</h3>
+    <p class="section-subtitle">¡Entra todos los días y recibe premios cada semana!</p>
+    <div class="streak" *ngIf="streak() as s">
+      <div
+        class="day"
+        *ngFor="let d of streakDays"
+        [class.active]="d <= s.currentDay"
+      >{{ d }}</div>
+    </div>
+
+    <!-- Tarjetas de secciones -->
+    <div class="features">
+      <button class="feature-card" *ngFor="let f of features" (click)="openFeature(f)">
+        <img *ngIf="f.img" class="feature-img" [src]="f.img" alt="" />
+        <span *ngIf="!f.img" class="feature-emoji">{{ f.emoji }}</span>
+        <span class="feature-title">{{ f.title }}</span>
+      </button>
+    </div>
+  </div>
+</ion-content>

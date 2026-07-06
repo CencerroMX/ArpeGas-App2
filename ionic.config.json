@@ -1,0 +1,7 @@
+{
+  "name": "ArpeGas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true" class="otp-content">
+  <div class="otp-wrap">
+    <img class="logo" src="assets/logo/arpe-logo-color.png" alt="ARPE Gas" />
+
+    <h1 class="heading-blue title">Ingresa el Código</h1>
+
+    <!-- Un solo input real (transparente) captura toda la escritura. -->
+    <div class="otp-field" (click)="focusInput()">
+      <div class="boxes">
+        <div
+          class="box"
+          *ngFor="let i of slots"
+          [class.filled]="digitAt(i)"
+          [class.active]="focused && code.length === i"
+        >{{ digitAt(i) }}</div>
+      </div>
+      <input
+        #hiddenInput
+        class="hidden-input"
+        type="tel"
+        inputmode="numeric"
+        autocomplete="one-time-code"
+        maxlength="4"
+        [value]="code"
+        (input)="onInput($event)"
+        (focus)="focused = true"
+        (blur)="focused = false"
+      />
+    </div>
+
+    <p class="resend" [class.active]="countdown === 0" (click)="resend()">
+      <ng-container *ngIf="countdown > 0">Puedes solicitar otro código en {{ countdown }} seg</ng-container>
+      <ng-container *ngIf="countdown === 0">Solicitar otro código</ng-container>
+    </p>
+
+    <button
+      class="arpe-btn full"
+      [class.btn-primary]="isComplete"
+      [class.btn-disabled]="!isComplete"
+      [disabled]="!isComplete"
+      (click)="continue()"
+    >
+      Continuar
+    </button>
+  </div>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-content class="ticket-content" [class.scanning]="isScanning()" [scrollY]="false">
+  <div class="scan-overlay">
+    <!-- Top: back + logo + título -->
+    <div class="top">
+      <button class="back" (click)="goBack()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      <img class="mark" src="assets/logo/arpe-logo-white.png" alt="ARPE" />
+      <button class="flash" [class.on]="torchOn()" (click)="toggleTorch()">
+        <ion-icon name="flash-outline"></ion-icon>
+      </button>
+    </div>
+    <h2 class="scan-title">Escanea el código QR en tu ticket para registrarlo</h2>
+
+    <!-- Marco de escaneo -->
+    <div class="frame">
+      <span class="corner tl"></span>
+      <span class="corner tr"></span>
+      <span class="corner bl"></span>
+      <span class="corner br"></span>
+
+      <!-- En navegador: no hay cámara. Botón de simulación (dev). -->
+      <div class="dev-note" *ngIf="!isNative">
+        <p>Vista previa sin cámara (navegador).</p>
+        <button class="arpe-btn btn-primary sim" (click)="simulateScan()">
+          Simular escaneo (dev)
+        </button>
+      </div>
+    </div>
+
+    <!-- Acciones -->
+    <div class="actions">
+      <button class="action red" (click)="startScan()">
+        <img class="act-ic" src="assets/tabs/qr-white.svg" alt="" />
+        <span>Escanear QR</span>
+      </button>
+      <button class="action white" (click)="fromGallery()">
+        <img class="act-ic" src="assets/icons/galeria.svg" alt="" />
+        <span>Desde Galería</span>
+      </button>
+    </div>
+
+    <!-- Mis Arpuntos -->
+    <button class="arpuntos" (click)="goToPoints()">
+      <img class="ap-mark" src="assets/logo/arpe-logo-white.png" alt="" />
+      <div class="ap-body">
+        <span class="ap-lbl">Mis Arpuntos</span>
+        <span class="ap-num">{{ points() ?? '—' }} pts</span>
+      </div>
+      <span class="ap-arrow">→</span>
+    </button>
+
+    <!-- Acceso a la herramienta de QR de prueba (dev) -->
+    <button class="qr-tool-link" (click)="goToQrTool()">🔧 Generar QR de prueba</button>
+  </div>
+</ion-content>
