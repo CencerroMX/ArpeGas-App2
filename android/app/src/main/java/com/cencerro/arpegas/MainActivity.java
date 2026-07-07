@@ -1,4 +1,4 @@
-package com.arpe.gas;
+package com.cencerro.arpegas;
 
 import com.getcapacitor.BridgeActivity;
 

@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.arpe.gas',
+  appId: 'com.cencerro.arpegas',
   appName: 'ARPE Gas',
   webDir: 'www',
   plugins: {

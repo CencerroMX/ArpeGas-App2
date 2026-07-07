@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "20.3.25",
     "@angular/router": "20.3.25",
     "@capacitor-mlkit/barcode-scanning": "^8.1.0",
-    "@capacitor/android": "^8.4.1",
+    "@capacitor/android": "8.4.1",
     "@capacitor/app": "^8.1.0",
     "@capacitor/camera": "^8.2.0",
     "@capacitor/clipboard": "^8.0.1",

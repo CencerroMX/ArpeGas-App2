@@ -18,8 +18,5 @@
 
     <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
         <item name="android:background">@drawable/splash</item>
-        <!-- Splash nativa de Android 12+: fondo azul ARPE + logo -->
-        <item name="android:windowSplashScreenBackground">#1A3FA6</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
     </style>
 </resources>
