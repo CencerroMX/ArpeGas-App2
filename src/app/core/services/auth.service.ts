@@ -84,8 +84,7 @@ export class AuthService {
       throw new Error(res.message);
     }
     if (res.data.is_new) {
-      // Guardamos token provisional; el usuario se completa en /auth/register.
-      await this.persist(res.data.token, res.data.user);
+      // Aún NO hay sesión: el usuario y el token se crean al completar el registro.
       return { isNew: true };
     }
     await this.persist(res.data.token, res.data.user);
