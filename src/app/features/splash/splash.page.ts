@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular/standalone';
+import { SplashScreen } from '@capacitor/splash-screen';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
@@ -40,8 +41,13 @@ export class SplashPage implements OnInit {
   private auth = inject(AuthService);
 
   async ngOnInit() {
-    await new Promise((r) => setTimeout(r, 1800));
+    // La sesión ya se cargó en el APP_INITIALIZER; enrutamos de inmediato.
     const target = this.auth.isLoggedIn() ? '/tabs/home' : '/auth/phone';
-    this.router.navigateByUrl(target, { replaceUrl: true });
+    await this.router.navigateByUrl(target, { replaceUrl: true });
+    // Ocultamos la splash NATIVA una vez que la pantalla destino ya está montada,
+    // así se ve una sola splash (la nativa) antes del registro/teléfono.
+    setTimeout(() => {
+      SplashScreen.hide({ fadeOutDuration: 250 }).catch(() => {});
+    }, 180);
   }
 }

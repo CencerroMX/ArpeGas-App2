@@ -10,14 +10,16 @@ const config: CapacitorConfig = {
       enabled: true,
     },
     SplashScreen: {
-      launchShowDuration: 1200,
-      backgroundColor: '#1e3a8a',
+      // No se auto-oculta: la app la cierra cuando ya enrutó a la primera pantalla,
+      // así solo se ve UNA splash antes del registro/teléfono.
+      launchAutoHide: false,
+      backgroundColor: '#1a3fa6',
       showSpinner: false,
       androidScaleType: 'CENTER_CROP',
     },
     StatusBar: {
       style: 'LIGHT',
-      backgroundColor: '#1e3a8a',
+      backgroundColor: '#1a3fa6',
     },
   },
 };
